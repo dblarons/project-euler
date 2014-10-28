@@ -12,3 +12,9 @@
 
 solution :: Integer
 solution = (sum [1..100] ^ 2) - sum (map (^2) [1..100])
+
+-- I like this solution because it reads like English. After
+-- reading the comments on Project Euler, I (re-)discovered that
+-- I could have used polynomials to solve the problem, but doing
+-- so would have obfuscated the meaning slightly. Though the 
+-- solution certainly would have been faster to compute.
