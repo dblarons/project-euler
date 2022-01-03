@@ -57,24 +57,25 @@
 
 let rec test a b c =
   if a >= b then []
-  else if (a * a) + (b * b) = (c * c) then [a; b; c]
+  else if (a * a) + (b * b) = c * c then [ a; b; c ]
   else test (a + 1) (b - 1) c
 
 let rec triplet c =
   let b = c - 1 in
-  let a = 1000 - c - b
+  let a = 1000 - c - b in
 
-  in if c >= 1000 then []
-  else match test a b c with
-  | [] -> triplet (c + 1)
-  | xs -> xs;;
+  if c >= 1000 then []
+  else match test a b c with [] -> triplet (c + 1) | xs -> xs
 
 let main () =
-  match triplet(335) with
+  match triplet 335 with
   | [] -> Printf.printf "not found"
-  | a::b::c::xs -> Printf.printf "a=%d b=%d c=%d a*b*c=%d\n" a b c (a * b * c)
-  | otherwise -> Printf.printf "oops";
+  | a :: b :: c :: xs ->
+      Printf.printf "a=%d b=%d c=%d a*b*c=%d\n" a b c (a * b * c)
+  | otherwise ->
+      Printf.printf "oops";
 
-  exit 0;;
+      exit 0
+;;
 
 main ()
